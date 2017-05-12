@@ -1,0 +1,41 @@
+{
+  "CN": "kubernetes",
+  "hosts": [
+    "worker-0",
+    "worker-1",
+    "worker-2",
+    "${kubernetes_cluster_dns}",
+    "${controller-0_ip}",
+    "${controller-1_ip}",
+    "${controller-2_ip}",
+    "${etcd-0_ip}",
+    "${etcd-1_ip}",
+    "${etcd-2_ip}",
+    "${worker-0_ip}",
+    "${worker-1_ip}",
+    "${worker-2_ip}",
+    "${controller-0_dns}",
+    "${controller-1_dns}",
+    "${controller-2_dns}",
+    "${etcd-0_dns}",
+    "${etcd-1_dns}",
+    "${etcd-2_dns}",
+    "${worker-0_dns}",
+    "${worker-1_dns}",
+    "${worker-2_dns}",
+    "${k8s_api_elb_dns_name}",
+    "127.0.0.1"
+  ],
+  "key": {
+    "algo": "rsa",
+    "size": 2048
+  },
+  "names": [
+    {
+      "C": "US",
+      "L": "Denver",
+      "O": "Scott Lowe",
+      "OU": "Cluster"
+    }
+  ]
+}
