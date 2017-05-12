@@ -1,0 +1,13 @@
+#cloud-config
+
+coreos:
+  etcd2:
+    discovery: "https://discovery.etcd.io/b4d4ec2d49bcc2938d2c1950139e53ba"
+    advertise-client-urls: "http://$public_ipv4:2379"
+    initial-advertise-peer-urls: "http://$private_ipv4:2380"
+    listen-client-urls: "http://0.0.0.0:2379"
+    listen-peer-urls: "http://$private_ipv4:2380"
+  units:
+    - name: "etcd2.service"
+      enabled: "true"
+      command: "start"
