@@ -1,0 +1,10 @@
+.vagrant
+roles/js-simple-ec2/tasks*
+ansible.cfg
+configure.yml
+js-simple-ec2.yml
+machines.yml
+packer.json
+README.md
+vagrant.py
+Vagrantfile
