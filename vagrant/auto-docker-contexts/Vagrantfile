@@ -78,6 +78,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       # Configure CPU & RAM per settings in machines.yml (Libvirt)
       srv.vm.provider 'libvirt' do |lv,override|
+        lv.uri = 'qemu:///system'
         lv.memory = machine['ram']
         lv.cpus = machine['vcpu']
         override.vm.box = machine['box']['lv']
@@ -95,5 +96,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         aws.security_groups = machine['aws']['security_groups']
       end # srv.vm.provider 'aws'
     end # config.vm.define
+
+    # Define a trigger
+    config.trigger.after 'up' do |trigger|
+      trigger.name = "Setting up Docker context..."
+      trigger.run = { path: "adc.sh" }
+    end # config.trigger
   end # machines.each
 end # Vagrant.configure
